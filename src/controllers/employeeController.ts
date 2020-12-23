@@ -55,6 +55,7 @@ const editEmployee = (req: Request, res: Response, next: NextFunction) => {
         }
     }
     */
+    logging.info(NAMESPACE, 'Edit employee route called');
     let original: employee = req.body.original;
     let edited: employee = req.body.edited;
     storage.editEmployee(original, edited);
@@ -78,6 +79,7 @@ const deleteEmployee = (req: Request, res: Response, next: NextFunction) => {
         ]
     }
     */
+    logging.info(NAMESPACE, 'Delete employee route called');
     let employeesToDelete: Array<employee> = req.body.employees;
     storage.deleteEmployee(employeesToDelete);
     return res.status(200).json({
